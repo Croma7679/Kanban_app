@@ -23,40 +23,6 @@ const TopNav = (props) => {
   };
 
   return (
-    // <div>
-    //   <div className="nav" position="static">
-    //     <div className="dropOnClick flex-gap-10 p-10">
-    //       <div className="selectGroup flex-sb">
-    //         <span>Grouping</span>
-    //         <select
-    //           value={groupValue}
-    //           onChange={(e) => handleGroupValue(e, true)}
-    //           className="selectStyle"
-    //           name="group"
-    //           id="group"
-    //         >
-    //           <option value="status">Status</option>
-    //           <option value="user">User</option>
-    //           <option value="priority">Priority</option>
-    //         </select>
-    //       </div>
-    //       <div className="selectGroup flex-sb">
-    //         <span>Ordering</span>
-    //         <select
-    //           value={orderValue}
-    //           onChange={(e) => handleGroupValue(e, false)}
-    //           className="selectStyle"
-    //           name="order"
-    //           id="order"
-    //         >
-    //           <option value="priority">Priority</option>
-    //           <option value="title">Title</option>
-    //         </select>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
-
     <div className="top-header" style={{ paddingLeft: "10px" }}>
       <div className="displayButton">
         <button
