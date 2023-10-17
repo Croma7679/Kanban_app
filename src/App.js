@@ -69,7 +69,7 @@ function App() {
         arr = allTickets?.filter((fElem) => {
           return index === fElem.priority;
         });
-        console.log("priority wala array " + arr);
+        // console.log("priority wala array " + arr);
 
         selectedData.push({
           title: elem,
