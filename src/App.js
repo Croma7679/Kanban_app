@@ -24,7 +24,7 @@ function App() {
     fetchData();
   }, []);
 
-  let user = false;
+  const [user, setUser] = useState(false);
   let mySet = new Set();
   let arr = [],
     selectedData = [];
@@ -35,12 +35,13 @@ function App() {
     let allUser = apiData?.users;
     //  console.log(allTickets);
     if (group === "status") {
+      setUser(false);
       allTickets?.forEach((elem) => {
         mySet.add(elem.status);
       });
 
       arr = [...mySet];
-      console.log("ye only status" + arr);
+      // console.log("ye only status" + arr);
       arr.forEach((elem, index) => {
         let arr1 = allTickets.filter((fElem) => {
           return elem === fElem.status;
@@ -51,7 +52,7 @@ function App() {
         });
       });
     } else if (group === "user") {
-      user = true;
+      setUser(true);
       allUser?.forEach((elem, index) => {
         arr = allTickets?.filter((Felem) => {
           return elem.id === Felem.userId;
@@ -64,7 +65,7 @@ function App() {
       });
     } else {
       let prior_list = ["No priority", "Low", "Medium", "High", "Urgent"];
-
+      setUser(false);
       prior_list.forEach((elem, index) => {
         arr = allTickets?.filter((fElem) => {
           return index === fElem.priority;
@@ -80,9 +81,9 @@ function App() {
 
     if (order === "title") {
       selectedData.forEach((elem, index) => {
-        console.log("before", elem);
+        // console.log("before", elem);
         elem?.value?.sort((a, b) => a.title.localeCompare(b.title));
-        console.log("after", elem);
+        // console.log("after", elem);
       });
     }
 
@@ -100,10 +101,10 @@ function App() {
 
   return (
     <>
-      {finalData && finalData.length != 0 ? (
+      {finalData && finalData.length !== 0 ? (
         <>
           <TopNav setGroup={setGroup} setOrder={setOrder} />
-          <DashBoard finalData={finalData} />
+          <DashBoard finalData={finalData} user = {user}/>
         </>
       ) : (
         <div

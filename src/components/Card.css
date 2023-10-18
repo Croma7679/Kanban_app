@@ -44,6 +44,9 @@
   padding: 2px 8px;
   border-radius: 5px;
   border: 1px solid silver;
+  justify-content: center;
+  padding-bottom:auto;
+  padding-top:auto;
 }
 
 
