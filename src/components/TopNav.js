@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { TiThList } from "react-icons/ti";
-// import {useDispatch} from "react-redux";
 import "./TopNav.css";
+import "../Utils/utils.css"
+
 
 const TopNav = (props) => {
   const [groupValue, setgroupValue] = useState("status");
   const [orderValue, setOrderValue] = useState("priority");
   const [displayOnClick, setDisplayOnClick] = useState(false);
-  // const dispatch = useDispatch();
   const { setGroup, setOrder } = props;
 
   const handleGroupValue = (e, valueBool) => {
@@ -23,29 +23,12 @@ const TopNav = (props) => {
       setOrder(e.target.value);
     }
   };
-  // useEffect(() => {
-  //   if (groupValue === "user") {
-  //     dispatch(
-  //       selectData(
-  //         groupValue,
-  //         {
-  //           allTickets,
-  //           allUser,
-  //         },
-  //         orderValue
-  //       )
-  //     );
-  //   } else {
-  //     dispatch(selectData(groupValue, allTickets, orderValue));
-  //   }
-  // }, [allTickets, dispatch, groupValue, allUser, orderValue]);
-
 
   return (
-    <div className="top-header" style={{paddingLeft : "10px"}}>
+    <div className="top-header" style={{ paddingLeft: "10px" }}>
       <div className="displayButton">
         <button
-          className="p-10 f-16 btn"
+          className="btn"
           onClick={() => setDisplayOnClick(!displayOnClick)}
         >
           {" "}
@@ -53,18 +36,30 @@ const TopNav = (props) => {
         </button>
         {displayOnClick && (
           <>
-            <div className="dropOnClick flex-gap-10 p-10">
-              <div className="selectGroup flex-sb">
+            <div className="dropOnClick ">
+              <div className="selectGroup disp-f">
                 <span>Grouping</span>
-                <select value={groupValue} onChange={(e) => handleGroupValue(e, true)} className="selectStyle" name="group" id="group">
+                <select
+                  value={groupValue}
+                  onChange={(e) => handleGroupValue(e, true)}
+                  className="selectStyle"
+                  name="group"
+                  id="group"
+                >
                   <option value="status">Status</option>
                   <option value="user">User</option>
                   <option value="priority">Priority</option>
                 </select>
               </div>
-              <div className="selectGroup flex-sb">
+              <div className="selectGroup disp-f">
                 <span>Ordering</span>
-                <select value={orderValue} onChange={(e) => handleGroupValue(e, false)} className="selectStyle" name="order" id="order">
+                <select
+                  value={orderValue}
+                  onChange={(e) => handleGroupValue(e, false)}
+                  className="selectStyle"
+                  name="order"
+                  id="order"
+                >
                   <option value="priority">Priority</option>
                   <option value="title">Title</option>
                 </select>

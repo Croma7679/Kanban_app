@@ -1,19 +1,20 @@
 import React from "react";
 import "./Card.css";
+import "../Utils/utils.css"
 
 const Card = ({ id, title, tag, status, user }) => {
   return (
-    <div className="cardContainer flex-gap-10" style={{ gap: "5px" }}>
-      <div className="cardHeading flex-sb">
-        <span style={{ textTransform: "uppercase" }} className="color-grey">
+    <div className="cardContainer">
+      <div className="cardHeading disp-f">
+        <span style={{ textTransform: "uppercase" }}>
           {id}
         </span>
         {user ? (
           <div></div>
+          // <div className="showStatus"></div>
         ) : (
-          <div className="" style={{ width: "30px", height: "30px" }}>
+          <div className="imageCont">
             <img
-              style={{ width: "100%", height: "100%", borderRadius: "50%" }}
               src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
               alt="UserImage"
             />
@@ -21,14 +22,14 @@ const Card = ({ id, title, tag, status, user }) => {
           </div>
         )}
       </div>
-      <div className="cardTitle" style={{ fontWeight: 200 }}>
-        <p>{title}</p>
+      <div className="cardTitle" style={{ fontWeight: 400 }}>
+        <p className="titles">{title}</p>
       </div>
-      <div className="cardTags">
-        <div className="tags color-grey"> ... </div>
+      <div className="cardTags disp-f">
+        <div className="tags "> ... </div>
         {tag?.map((elem, index) => {
           return (
-            <div key={index} className="tags color-grey">
+            <div key={index} className="tags">
               {" "}
               <span>•</span> {elem}
             </div>

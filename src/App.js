@@ -2,7 +2,7 @@ import "./App.css";
 import TopNav from "./components/TopNav";
 import DashBoard from "./components/DashBoard";
 import { useState, useEffect } from "react";
-import { Circles } from "react-loader-spinner";
+import { Loader } from "./Loader/Loader";
 
 function App() {
   const [group, setGroup] = useState("status");
@@ -26,8 +26,8 @@ function App() {
 
   const [user, setUser] = useState(false);
   let mySet = new Set();
-  let arr = [],
-    selectedData = [];
+  let arr = [];
+  let selectedData = [];
 
   function finalFetching() {
     // Intialization of groups and order
@@ -104,27 +104,10 @@ function App() {
       {finalData && finalData.length !== 0 ? (
         <>
           <TopNav setGroup={setGroup} setOrder={setOrder} />
-          <DashBoard finalData={finalData} user = {user}/>
+          <DashBoard finalData={finalData} user={user} />
         </>
       ) : (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100vh",
-          }}
-        >
-          <Circles
-            height="80"
-            width="80"
-            color="#4fa94d"
-            ariaLabel="circles-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-          />
-        </div>
+        <Loader />
       )}
     </>
   );

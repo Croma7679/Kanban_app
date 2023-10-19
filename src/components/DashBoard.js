@@ -1,58 +1,43 @@
 import Card from "./Card";
 import { AiOutlinePlus } from "react-icons/ai";
 import "./Dashboard.css";
+import "../Utils/utils.css";
 
 const DashBoard = (props) => {
   const { finalData, user } = props;
   console.log("user", user);
   return (
     <div>
-      <div className="ParBox">
+      <div className="ParBox disp-f">
         {/* <div> */}
         {finalData?.map((ele, ind) => {
           return (
-            <div className="IndBox" key={ind}>
-              <div className="heading">
-                <div className="left-side">
+            <div className="IndBox disp-f" key={ind}>
+              <div className="heading disp-f">
+                <div className="left-side disp-f">
                   {!user ? (
-                    <div
-                      className="imageContainer relative"
-                      style={{ width: "20px", height: "20px" }}
-                    >
+                    <div className="progress" >
                       <img
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          borderRadius: "50%",
-                        }}
                         src="https://static-00.iconduck.com/assets.00/in-progress-icon-510x512-mw0pz22p.png"
                         alt="UserImage"
                       />
                       <div className="showStatus"></div>
                     </div>
                   ) : (
-                    <div
-                      className="imageContainer relative"
-                      style={{ width: "30px", height: "30px" }}
-                    >
+                    <div style={{ width: "30px", height: "30px" }}>
                       <img
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          borderRadius: "50%",
-                        }}
                         src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
                         alt="UserImage"
                       />
                       <div className="showStatus"></div>
                     </div>
                   )}
-                  <div className="title">
-                    <span>{ele.title}: </span>
-                    {ele.value?.length}
+                  <div >
+                    <span className="title">{ele.title}: </span>
+                    <span>{ele.value?.length}</span>
                   </div>
                 </div>
-                <div className="right-side">
+                <div className="right-side disp-f">
                   <AiOutlinePlus />{" "}
                   <span style={{ letterSpacing: "2px", marginLeft: "12px" }}>
                     ...
@@ -67,7 +52,7 @@ const DashBoard = (props) => {
                     id={childEle.id}
                     tag={childEle.tag}
                     status={childEle.status}
-                    user = {user}
+                    user={user}
                   ></Card>
                 );
               })}
